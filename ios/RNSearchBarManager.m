@@ -22,6 +22,15 @@ RCT_ENUM_CONVERTER(UISearchBarStyle, (@{
                    UISearchBarStyleDefault, integerValue)
 @end
 
+@implementation RCTConvert (UIUserInterfaceStyle)
+RCT_ENUM_CONVERTER(UIUserInterfaceStyle, (@{
+                                        @"default": @(UIUserInterfaceStyleUnspecified),
+                                        @"light": @(UIUserInterfaceStyleLight),
+                                        @"dark": @(UIUserInterfaceStyleDark)
+                                        }),
+                   UIUserInterfaceStyleUnspecified, integerValue)
+@end
+
 @implementation RNSearchBarManager
 
 RCT_EXPORT_MODULE()
@@ -59,6 +68,7 @@ RCT_EXPORT_VIEW_PROPERTY(barTintColor, UIColor)
 RCT_EXPORT_VIEW_PROPERTY(tintColor, UIColor)
 RCT_EXPORT_VIEW_PROPERTY(enablesReturnKeyAutomatically, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(barStyle, UIBarStyle)
+RCT_EXPORT_VIEW_PROPERTY(overrideUserInterfaceStyle, UIUserInterfaceStyle)
 RCT_EXPORT_VIEW_PROPERTY(returnKeyType, UIReturnKeyType)
 RCT_EXPORT_VIEW_PROPERTY(keyboardType, UIKeyboardType)
 RCT_EXPORT_VIEW_PROPERTY(keyboardAppearance, UIKeyboardAppearance)
