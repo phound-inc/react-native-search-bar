@@ -68,7 +68,12 @@ RCT_EXPORT_VIEW_PROPERTY(barTintColor, UIColor)
 RCT_EXPORT_VIEW_PROPERTY(tintColor, UIColor)
 RCT_EXPORT_VIEW_PROPERTY(enablesReturnKeyAutomatically, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(barStyle, UIBarStyle)
-RCT_EXPORT_VIEW_PROPERTY(overrideUserInterfaceStyle, UIUserInterfaceStyle)
+RCT_CUSTOM_VIEW_PROPERTY(overrideUserInterfaceStyle, UIUserInterfaceStyle, RNSearchBar) {
+    if (@available(iOS 13.0, *)) {
+        view.overrideUserInterfaceStyle = [RCTConvert UIUserInterfaceStyle:json];
+    }
+}
+
 RCT_EXPORT_VIEW_PROPERTY(returnKeyType, UIReturnKeyType)
 RCT_EXPORT_VIEW_PROPERTY(keyboardType, UIKeyboardType)
 RCT_EXPORT_VIEW_PROPERTY(keyboardAppearance, UIKeyboardAppearance)
